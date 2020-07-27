@@ -10,5 +10,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         boolean raja = true;
         boolean adhi= true;
+        boolean dhilip=true;
     }
 }
