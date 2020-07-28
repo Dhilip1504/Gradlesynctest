@@ -11,5 +11,6 @@ public class MainActivity extends AppCompatActivity {
         boolean raja = true;
         boolean adhi= true;
         boolean dhilip=true;
+        boolean goodcommit=true;
     }
 }
