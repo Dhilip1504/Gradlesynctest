@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ScheduleEntry"
+    android:layout_margin="20dp"
+    android:background="@drawable/scheduleitembox"
+    android:layout_height="wrap_content">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ContactImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/person_icon" />
+
+    <TextView
+        android:id="@+id/ScheduledDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="30dp"
+        android:text="Date"
+        android:layout_marginTop="25dp"
+        android:textSize="16sp" />
+    <TextView
+        android:id="@+id/ContactName"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Person's name"
+        android:layout_toRightOf="@id/ContactImage"
+        android:layout_toLeftOf="@id/ScheduledDate"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ScheduleTime"
+        android:text="time"
+        android:layout_below="@id/ScheduledDate"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="5dp"
+        android:textSize="16sp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Message description"
+        android:id="@+id/ScheduledMessage"
+        android:textSize="18dp"
+        android:layout_below="@id/ContactName"
+        android:layout_toRightOf="@id/ContactImage"
+        android:layout_toLeftOf="@id/ScheduleTime"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Schedule status"
+        android:layout_below="@id/ScheduledMessage"
+        android:layout_toRightOf="@id/ContactImage"
+        android:layout_toLeftOf="@id/ScheduleTime"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:textStyle="italic"
+        />
+</RelativeLayout>
