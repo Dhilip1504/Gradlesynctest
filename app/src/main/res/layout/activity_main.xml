@@ -37,11 +37,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end|bottom"
-            app:tint="@android:color/white"
-            app:backgroundTint="#FF7700"
-            android:src="@drawable/chats_fab_icon"
+            android:layout_marginBottom="15dp"
             android:layout_marginRight="15dp"
-            android:layout_marginBottom="15dp" />
+            android:src="@drawable/chats_fab_icon"
+            app:backgroundTint="#FF7700"
+            app:tint="@android:color/white" />
 
     </FrameLayout>
 
