@@ -35,8 +35,9 @@
         android:layout_below="@+id/mainActivity_toolbar"
         android:background="@color/colorPrimary"
         app:tabIndicatorColor="@android:color/white"
-        app:tabTextColor="@android:color/white"
-        app:tabIndicatorHeight="5dp"
+        app:tabTextColor="#BCFFFFFF"
+        app:tabSelectedTextColor="@android:color/white"
+        app:tabIndicatorHeight="3dp"
         android:elevation="5dp"/>
 
     <androidx.viewpager.widget.ViewPager
