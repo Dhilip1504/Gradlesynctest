@@ -42,9 +42,9 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/voicecall"
-                android:layout_width="39dp"
+                android:layout_width="40dp"
                 android:layout_alignParentRight="true"
-                android:layout_height="55dp"
+                android:layout_height="39dp"
                 android:layout_marginTop="23dp"
                 android:layout_marginBottom="23dp"
                 android:layout_marginRight="15dp"
