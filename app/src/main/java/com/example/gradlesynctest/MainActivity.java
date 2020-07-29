@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager myViewPager;
     private TabLayout tabLayout;
     private TabAccessorAdapter tabAccessorAdapter;
+    private FloatingActionButton myfab;
     public int currentPage=0;
 
     @Override
@@ -35,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("");
 
+        myfab = (FloatingActionButton) findViewById(R.id.fab);
+
         myViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -44,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onPageSelected(int position) {
                 currentPage = position;
+                fabIconChange();
                 supportInvalidateOptionsMenu();
             }
 
@@ -132,6 +137,21 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return true;
+    }
+
+    public void fabIconChange(){
+
+        switch (currentPage){
+            case 0:
+                myfab.setImageResource(R.drawable.chats_fab_icon);
+                break;
+            case 1:
+                myfab.setImageResource(R.drawable.schedules_fab_icon);
+                break;
+            case 2:
+                myfab.setImageResource(R.drawable.calls_fab_icon);
+        }
+
     }
 
 }
