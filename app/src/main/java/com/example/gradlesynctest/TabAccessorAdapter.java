@@ -8,6 +8,8 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 public class TabAccessorAdapter extends FragmentPagerAdapter {
 
+    MainActivity mainActivity = new MainActivity();
+
     public TabAccessorAdapter(@NonNull FragmentManager fm, int behavior) {
         super(fm, behavior);
     }
@@ -19,14 +21,17 @@ public class TabAccessorAdapter extends FragmentPagerAdapter {
         switch (position){
 
             case 0:
+                mainActivity.currentPage = 0;
                 ChatFragment chatFragment = new ChatFragment();
                 return chatFragment;
 
             case 1:
+                mainActivity.currentPage = 1;
                 SchedulesFragment schedulesFragment = new SchedulesFragment();
                 return schedulesFragment;
 
             case 2:
+                mainActivity.currentPage = 2;
                 CallsFragment callsFragment = new CallsFragment();
                 return callsFragment;
 

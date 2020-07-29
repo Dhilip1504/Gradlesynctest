@@ -30,25 +30,25 @@
                 android:textSize="18sp"/>
 
             <TextView
-                    android:id="@+id/calltime"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:layout_below="@id/username"
-                    android:text="Time"
-                    android:layout_margin="10dp"
-                    android:textStyle="italic"
-                    android:textSize="18sp"/>
+                android:id="@+id/calltime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/username"
+                android:text="Time"
+                android:layout_margin="10dp"
+                android:textStyle="italic"
+                android:textSize="18sp"/>
 
             <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/voicecall"
-                    android:layout_width="55dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_height="55dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginBottom="15dp"
-                    android:layout_marginRight="15dp"
-                    android:src="@drawable/ic_voicecall"/>
+                android:id="@+id/voicecall"
+                android:layout_width="39dp"
+                android:layout_alignParentRight="true"
+                android:layout_height="55dp"
+                android:layout_marginTop="23dp"
+                android:layout_marginBottom="23dp"
+                android:layout_marginRight="15dp"
+                android:src="@drawable/ic_voicecall"/>
             
             </RelativeLayout>
 

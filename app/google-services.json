@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "975642233455",
+    "firebase_url": "https://whysapp-154.firebaseio.com",
+    "project_id": "whysapp-154",
+    "storage_bucket": "whysapp-154.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:975642233455:android:508e2bd1f7044c43abdb9a",
+        "android_client_info": {
+          "package_name": "com.example.gradlesynctest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "975642233455-n4jh1q9hparrio65vrb9834li4nto7m2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBs_ukB0B9CzATQ-xKC0_5EWuUxBVVPet0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "975642233455-n4jh1q9hparrio65vrb9834li4nto7m2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

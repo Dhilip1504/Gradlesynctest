@@ -15,6 +15,14 @@
         android:title="Starred messages"
         app:showAsAction="never"/>
 
+    <item android:id="@+id/scheduleSettings"
+        android:title="Schedules settings"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/clearLogs"
+        android:title="Clear call log"
+        app:showAsAction="never"/>
+
     <item android:id="@+id/settings"
         android:title="Settings"
         app:showAsAction="never"/>
