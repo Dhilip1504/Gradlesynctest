@@ -7,67 +7,56 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:background="@drawable/scheduleitembox"
         android:layout_margin="10dp">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/userimage"
-            android:layout_width="70dp"
-            android:layout_height="70dp" />
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:src="@drawable/person_icon"/>
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:orientation="vertical">
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+            android:layout_height="85dp">
 
-                <TextView
+            <TextView
                 android:id="@+id/username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="username"
+                android:text="Username"
+                android:layout_margin="10dp"
                 android:textStyle="bold"
                 android:textSize="18sp"/>
 
-                <ImageView
-                    android:id="@+id/voicecall"
-                    android:layout_width="50dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_height="50dp"
-                    android:layout_marginRight="5dp"
-                    android:src="@drawable/ic_voicecall"/>
-            </RelativeLayout>
             <TextView
-                android:id="@+id/calltime"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Day, time"
-                android:layout_marginTop="7dp"
-                android:layout_marginBottom="7dp"
-                android:textStyle="bold"
-                android:textSize="18sp" />
+                    android:id="@+id/calltime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_below="@id/username"
+                    android:text="Time"
+                    android:layout_margin="10dp"
+                    android:textStyle="italic"
+                    android:textSize="18sp"/>
 
+            <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/voicecall"
+                    android:layout_width="55dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/ic_voicecall"/>
             
-            </LinearLayout>
-
-
-        </LinearLayout>
-
-
-
-
-
-
+            </RelativeLayout>
 
     </LinearLayout>
+        </RelativeLayout>
 
 
 
-</RelativeLayout>
+
+
+
