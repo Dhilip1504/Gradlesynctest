@@ -8,7 +8,7 @@
         android:id="@+id/logintoolbar"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        android:background="#FF9900"
+        android:background="@color/colorPrimary"
         app:titleTextColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -68,17 +68,18 @@
             android:textStyle="bold"
             android:paddingLeft="10dp"/>
 
-        <de.hdodenhof.circleimageview.CircleImageView
+        <ImageButton
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/ic_phonenumberlogin"
+            android:background="@drawable/login_button_style"
             android:layout_below="@id/infotext"
             android:layout_marginTop="50dp"
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@id/phonenumber">
 
 
-        </de.hdodenhof.circleimageview.CircleImageView>
+        </ImageButton>
 
 
 
