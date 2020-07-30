@@ -4,4 +4,6 @@
     <color name="colorPrimaryDark">#E18801</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="clipboard">#DC6701</color>
+
+    <color name="black_overlay">#66000000</color>
 </resources>

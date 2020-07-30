@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/logintoolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="#FF9900"
+        app:titleTextColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:elevation="5dp"
+        app:menu="@menu/logintoolbar">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enter your phone number"
+            android:textSize="20sp"
+            android:layout_marginLeft="90dp"
+            android:textStyle="bold"
+            android:textColor="#F4F0F0"></TextView>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/logintoolbar"
+        android:layout_marginTop="25dp">
+        <TextView
+            android:id="@+id/infotext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:layout_marginLeft="5dp"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:text="Whysapp will send an SMS message to verify your phone number. What's my number?"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/infotext"
+            android:layout_marginLeft="30dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:text="+91"
+            android:layout_alignBottom="@id/phonenumber"
+
+            android:layout_marginTop="50dp"
+            />
+        <EditText
+            android:id="@+id/phonenumber"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/infotext"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="80dp"
+            android:hint="phone number"
+            android:maxLines="1"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:paddingLeft="10dp"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_phonenumberlogin"
+            android:layout_below="@id/infotext"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/phonenumber">
+
+
+        </de.hdodenhof.circleimageview.CircleImageView>
+
+
+
+
+    </RelativeLayout>
+
+
+
+
+
+
+</RelativeLayout>
+
