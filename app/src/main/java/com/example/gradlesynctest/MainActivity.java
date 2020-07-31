@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,11 +24,21 @@ public class MainActivity extends AppCompatActivity {
     private TabAccessorAdapter tabAccessorAdapter;
     private FloatingActionButton myfab;
     public int currentPage=0;
+    public static final String SHARED_PREFS = "sharedPrefs";
+    public static String loginStatus = "status";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
+        String status = sharedPreferences.getString(loginStatus, "NO");
+        if(status.equals("NO")){
+            Intent intent = new Intent(MainActivity.this, Mobilelogin.class);
+            startActivity(intent);
+            finish();
+        }
 
         mAuth = FirebaseAuth.getInstance();
 
