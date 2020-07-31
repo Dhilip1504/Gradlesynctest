@@ -52,7 +52,6 @@
             android:gravity="center"
             android:text="+91"
             android:layout_alignBottom="@id/phonenumber"
-
             android:layout_marginTop="50dp"
             />
         <EditText
@@ -76,9 +75,32 @@
             android:layout_below="@id/infotext"
             android:layout_marginTop="50dp"
             android:layout_marginLeft="10dp"
+            android:id="@+id/Otpbutton"
             android:layout_toRightOf="@id/phonenumber">
+        </ImageButton>
 
+        <EditText
+            android:id="@+id/otp"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/phonenumber"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="80dp"
+            android:maxLines="1"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:paddingLeft="10dp"/>
 
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_phonenumberlogin"
+            android:background="@drawable/login_button_style"
+            android:layout_below="@id/Otpbutton"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/loginbutton"
+            android:layout_toRightOf="@id/otp">
         </ImageButton>
 
 
