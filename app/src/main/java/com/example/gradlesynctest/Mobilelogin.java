@@ -25,104 +25,114 @@ import android.widget.Toast;
 
 import java.util.concurrent.TimeUnit;
 
+import static java.util.concurrent.TimeUnit.SECONDS;
+
 public class Mobilelogin extends AppCompatActivity {
 
   ImageButton Otpbutton,loginbutton;
   EditText phonenumber,otp;
-  FirebaseAuth mAuth;
-  String codesent;
+ private FirebaseAuth mAuth;
+ private PhoneAuthProvider.OnVerificationStateChangedCallbacks callbacks;
+ private PhoneAuthProvider.ForceResendingToken mResendToken;
+ PhoneAuthCredential credential;
+  private String codesent,mobile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mobilelogin);
 
-        phonenumber=(EditText) findViewById(R.id.phonenumber);
-        otp=(EditText) findViewById(R.id.otp);
-        Otpbutton=(ImageButton) findViewById(R.id.Otpbutton);
-        loginbutton=(ImageButton) findViewById(R.id.loginbutton);
-
+        phonenumber = (EditText) findViewById(R.id.phonenumber);
+        otp = (EditText) findViewById(R.id.otp);
+        Otpbutton = (ImageButton) findViewById(R.id.Otpbutton);
+        loginbutton = (ImageButton) findViewById(R.id.loginbutton);
         mAuth=FirebaseAuth.getInstance();
 
         Otpbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sendOtp();
+
+                mobile = phonenumber.getText().toString();
+                if (mobile.isEmpty()) {
+                    phonenumber.setError("Phone number is required");
+                }
+                if (mobile.length() < 10) {
+                    phonenumber.setError("Enter valid phone number");
+                }
+                PhoneAuthProvider.getInstance().verifyPhoneNumber(
+                        mobile,        // Phone number to verify
+                        60,                 // Timeout duration
+                        TimeUnit.SECONDS,   // Unit of timeout
+                        Mobilelogin.this,      // Activity (for callback binding)
+                        callbacks);        // OnVerificationStateChangedCallbacks
             }
         });
 
         loginbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                verification();
+
+                String verifcationcode=otp.getText().toString();
+                if(verifcationcode.isEmpty()){
+                    Toast.makeText(Mobilelogin.this,"Invalid code",Toast.LENGTH_LONG).show();
+                }else{
+                    PhoneAuthCredential credential=PhoneAuthProvider.getCredential(codesent,verifcationcode);
+                    signInWithPhoneAuthCredential(credential);
+                }
             }
         });
-    }
 
-    private void sendOtp(){
-        String mobile=phonenumber.getText().toString();
+        callbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+            @Override
+            public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
+                signInWithPhoneAuthCredential(credential);
+            }
 
-        if(mobile.isEmpty()){
-            phonenumber.setError("Phone number is required");
-            phonenumber.requestFocus();
-            return;
-        }
-        if(mobile.length()<10 || mobile.length()>10){
-            phonenumber.setError("Enter a valid phone number");
-            phonenumber.requestFocus();
-            return;
-        }
+            @Override
+            public void onVerificationFailed(@NonNull FirebaseException e) {
+                Toast.makeText(Mobilelogin.this,e.getMessage().toString(),Toast.LENGTH_LONG).show();
+                Otpbutton.setVisibility(View.VISIBLE);
+                loginbutton.setVisibility(View.INVISIBLE);
+                otp.setVisibility(View.INVISIBLE);
 
-        // To send otp
+            }
+            @Override
+            public void onCodeSent(@NonNull String verificationId,
+                                   @NonNull PhoneAuthProvider.ForceResendingToken token) {
+                // Save verification ID and resending token so we can use them later
+                codesent = verificationId;
+                mResendToken = token;
+                Toast.makeText(Mobilelogin.this,"Code sent",Toast.LENGTH_LONG).show();
 
-        PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                mobile,        // Phone number to verify
-                60,                 // Timeout duration
-                TimeUnit.SECONDS,   // Unit of timeout
-                this,               // Activity (for callback binding)
-                mCallbacks);
-    }
+                Otpbutton.setVisibility(View.INVISIBLE);
+                loginbutton.setVisibility(View.VISIBLE);
+                otp.setVisibility(View.VISIBLE);
+            }
+        };
 
-    // code sent via sms to the user is s
-    PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
-        @Override
-        public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
-
-        }
-
-        @Override
-        public void onVerificationFailed(@NonNull FirebaseException e) {
-
-        }
-
-        @Override
-        public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
-            super.onCodeSent(s, forceResendingToken);
-
-            codesent=s;
-        }
-    };
-
-    private void verification() {
-        String code = otp.getText().toString();
-        PhoneAuthCredential credential = PhoneAuthProvider.getCredential(codesent, code);
-    signInWithPhoneAuthCredential(credential);
     }
 
     private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
-            mAuth.signInWithCredential(credential)
-                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                Intent intent = new Intent(Mobilelogin.this,MainActivity.class);
-                                startActivity(intent);
-                            } else {
-                                if(task.getException() instanceof FirebaseAuthInvalidCredentialsException)
-                                Toast.makeText(getApplicationContext(),"Login failure",Toast.LENGTH_LONG).show();
-                                }
+        mAuth.signInWithCredential(credential)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                           Intent intent=new Intent(Mobilelogin.this,MainActivity.class);
+                           startActivity(intent);
                         }
-                    });
-        }
+                        if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
+                            Toast.makeText(Mobilelogin.this,"Error:"+task.getException().toString(),Toast.LENGTH_LONG).show();
+
+                        }
+                    }
+
+                });
+    }
+
+
+
+
+
 
     }
 

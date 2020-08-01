@@ -89,6 +89,8 @@
             android:maxLines="1"
             android:textSize="20sp"
             android:textStyle="bold"
+            android:hint="otp"
+            android:visibility="invisible"
             android:paddingLeft="10dp"/>
 
         <ImageButton
@@ -100,7 +102,8 @@
             android:layout_marginTop="50dp"
             android:layout_marginLeft="10dp"
             android:id="@+id/loginbutton"
-            android:layout_toRightOf="@id/otp">
+            android:layout_toRightOf="@id/otp"
+            android:visibility="invisible">
         </ImageButton>
 
 
