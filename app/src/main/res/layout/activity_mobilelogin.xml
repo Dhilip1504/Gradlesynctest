@@ -86,10 +86,10 @@
             android:layout_below="@id/phonenumber"
             android:layout_marginTop="50dp"
             android:layout_marginLeft="80dp"
+            android:hint="OTP"
             android:maxLines="1"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:hint="otp"
             android:visibility="invisible"
             android:paddingLeft="10dp"/>
 

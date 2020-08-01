@@ -11,6 +11,7 @@ import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
 
@@ -28,14 +29,13 @@ import java.util.concurrent.TimeUnit;
 import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class Mobilelogin extends AppCompatActivity {
-
-  ImageButton Otpbutton,loginbutton;
-  EditText phonenumber,otp;
- private FirebaseAuth mAuth;
- private PhoneAuthProvider.OnVerificationStateChangedCallbacks callbacks;
- private PhoneAuthProvider.ForceResendingToken mResendToken;
- PhoneAuthCredential credential;
-  private String codesent,mobile;
+    ImageButton Otpbutton,loginbutton;
+    EditText phonenumber,otp;
+    private FirebaseAuth mAuth;
+    private PhoneAuthProvider.OnVerificationStateChangedCallbacks callbacks;
+    private PhoneAuthProvider.ForceResendingToken mResendToken;
+    PhoneAuthCredential credential;
+    private String codesent,mobile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,7 +84,7 @@ public class Mobilelogin extends AppCompatActivity {
         callbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             @Override
             public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
-                signInWithPhoneAuthCredential(credential);
+                //signInWithPhoneAuthCredential(phoneAuthCredential);
             }
 
             @Override
@@ -124,16 +124,14 @@ public class Mobilelogin extends AppCompatActivity {
                             Toast.makeText(Mobilelogin.this,"Error:"+task.getException().toString(),Toast.LENGTH_LONG).show();
 
                         }
+                        if (task.getException() instanceof FirebaseAuthUserCollisionException) {
+                            Toast.makeText(Mobilelogin.this,"Error:"+task.getException().toString(),Toast.LENGTH_LONG).show();
+                        }
                     }
 
                 });
     }
-
-
-
-
-
-
+    
     }
 
 
